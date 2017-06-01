@@ -28,4 +28,9 @@ public class MainScreen extends AppCompatActivity {
         Intent intent = new Intent(MainScreen.this, VRTattoo.class);
         startActivity(intent);
     }
+    public void goToStudio(View view) {
+        Intent intent = new Intent(MainScreen.this, Studios.class);
+        startActivity(intent);
+    }
+
 }
