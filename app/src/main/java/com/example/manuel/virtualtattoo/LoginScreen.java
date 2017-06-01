@@ -14,7 +14,7 @@ public class LoginScreen extends AppCompatActivity {
     }
 
     public void sendMessage(View view) {
-        Intent intent = new Intent(LoginScreen.this, MainActivity.class);
+        Intent intent = new Intent(LoginScreen.this, MainScreen.class);
         startActivity(intent);
     }
 }
