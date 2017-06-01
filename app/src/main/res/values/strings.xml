@@ -3,4 +3,11 @@
 
     <string name="forgotPassword"><a href="http://www.orf.at">Forgot password?</a></string>
     <string name="signIn"><a href="http://www.orf.at">Sign In</a></string>
+    <string-array name="sketch_array">
+        <item>Sketch01</item>
+        <item>Skull</item>
+        <item>Flames</item>
+        <item>Fern</item>
+        <item>Saturn</item>
+    </string-array>
 </resources>
