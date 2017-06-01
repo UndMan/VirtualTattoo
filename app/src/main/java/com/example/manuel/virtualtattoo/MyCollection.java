@@ -1,16 +1,17 @@
 package com.example.manuel.virtualtattoo;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
+import android.support.v7.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by Manuel on 01.06.2017.
+ */
+
+public class MyCollection extends AppCompatActivity {
     private AdView mAdView;
 
     @Override

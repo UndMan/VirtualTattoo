@@ -10,17 +10,52 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".About" android:label="About">
 
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainScreen" />
         </activity>
 
-        <activity
-            android:name=".LoginScreen"
-            android:label="Login">
+        <activity android:name=".Help" android:label="Help">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainScreen" />
+        </activity>
+
+        <activity android:name=".Import" android:label="Import">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainScreen" />
+        </activity>
+
+        <activity android:name=".LoginScreen" android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".MainScreen" android:label="Browse Designs">
+
+        </activity>
+
+        <activity android:name=".MyCollection" android:label="My Collection">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainScreen" />
+        </activity>
+
+        <activity android:name=".Options" android:label="Options">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainScreen" />
+        </activity>
+
+        <activity android:name=".Sketch" android:label="Sketch">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainScreen" />
         </activity>
 
         <activity
@@ -31,8 +66,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainScreen"
-            >       </activity>
+
+        <activity android:name=".Studios" android:label="Nearby Tattoo Studios">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainScreen" />
+        </activity>
+
+        <activity android:name=".VRTattoo" android:label="Virtual Reality Tattoo">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainScreen" />
+        </activity>
     </application>
 
 </manifest>
