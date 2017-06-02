@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <item android:id="@+id/myCollection" android:title="@string/menu_my_collection" app:showAsAction="never"/>
+        <item android:id="@+id/browseDesigns" android:title="@string/menu_browse_designs" app:showAsAction="never"/>
+        <item android:id="@+id/nearbyStudios" android:title="@string/menu_nearby_studios" app:showAsAction="never"/>
+        <item android:id="@+id/vrTattoo" android:title="@string/menu_vr_tattoo" app:showAsAction="never"/>
+        <item android:id="@+id/imports" android:title="@string/menu_import" app:showAsAction="never"/>
+        <item android:id="@+id/help" android:title="@string/menu_help" app:showAsAction="never"/>
+        <item android:id="@+id/options" android:title="@string/menu_options" app:showAsAction="never"/>
+        <item android:id="@+id/about" android:title="@string/menu_about" app:showAsAction="never"/>
+        <item android:id="@+id/logout" android:title="@string/menu_logout" app:showAsAction="never"/>
+</menu>

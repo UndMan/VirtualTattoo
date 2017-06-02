@@ -2,6 +2,9 @@ package com.example.manuel.virtualtattoo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -29,11 +32,21 @@ public class Studios extends AppCompatActivity implements OnMapReadyCallback {
 
         initMap();
 
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar2);
+        setSupportActionBar(mToolbar);
+
         MobileAds.initialize(getApplicationContext(),
                 "ca-app-pub-3940256099942544~3347511713");
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mMenuInflater = getMenuInflater();
+        mMenuInflater.inflate(R.menu.menu, menu);
+        return true;
     }
 
     private void initMap() {
