@@ -77,13 +77,4 @@ public class MainScreen extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToVRTattoo(View view) {
-        Intent intent = new Intent(MainScreen.this, VRTattoo.class);
-        startActivity(intent);
-    }
-    public void goToStudio(View view) {
-        Intent intent = new Intent(MainScreen.this, Studios.class);
-        startActivity(intent);
-    }
-
 }
