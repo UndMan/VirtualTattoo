@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+        <item android:id="@+id/sketch" android:title="@string/menu_new_sketch" app:showAsAction="never"/>
         <item android:id="@+id/myCollection" android:title="@string/menu_my_collection" app:showAsAction="never"/>
         <item android:id="@+id/browseDesigns" android:title="@string/menu_browse_designs" app:showAsAction="never"/>
         <item android:id="@+id/nearbyStudios" android:title="@string/menu_nearby_studios" app:showAsAction="never"/>

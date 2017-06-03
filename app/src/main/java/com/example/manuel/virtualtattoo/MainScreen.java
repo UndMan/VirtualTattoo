@@ -39,6 +39,43 @@ public class MainScreen extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        if(item.getItemId() == R.id.nearbyStudios){
+            intent = new Intent(MainScreen.this, Studios.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.myCollection){
+                intent = new Intent(MainScreen.this, MyCollection.class);
+                startActivity(intent);
+        }else if(item.getItemId() == R.id.browseDesigns){
+                /*intent = new Intent(MainScreen.this, MainScreen.class);
+                startActivity(intent);*/
+        }else if(item.getItemId() == R.id.vrTattoo){
+            intent = new Intent(MainScreen.this, VRTattoo.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.imports){
+            intent = new Intent(MainScreen.this, Import.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.help){
+            intent = new Intent(MainScreen.this, Help.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.options){
+            intent = new Intent(MainScreen.this, Options.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.about){
+            intent = new Intent(MainScreen.this, About.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.logout){
+            intent = new Intent(MainScreen.this, LoginScreen.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.sketch) {
+            intent = new Intent(MainScreen.this, Sketch.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     public void goToVRTattoo(View view) {
         Intent intent = new Intent(MainScreen.this, VRTattoo.class);

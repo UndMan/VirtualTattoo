@@ -2,6 +2,7 @@ package com.example.manuel.virtualtattoo;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -58,6 +60,43 @@ public class VRTattoo extends AppCompatActivity implements AdapterView.OnItemSel
         MenuInflater mMenuInflater = getMenuInflater();
         mMenuInflater.inflate(R.menu.menu, menu);
         return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        if(item.getItemId() == R.id.nearbyStudios){
+            intent = new Intent(VRTattoo.this, Studios.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.myCollection){
+            intent = new Intent(VRTattoo.this, MyCollection.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.browseDesigns){
+            intent = new Intent(VRTattoo.this, MainScreen.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.vrTattoo){
+            /*intent = new Intent(VRTattoo.this, VRTattoo.class);
+            startActivity(intent);*/
+        }else if(item.getItemId() == R.id.imports){
+            intent = new Intent(VRTattoo.this, Import.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.help){
+            intent = new Intent(VRTattoo.this, Help.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.options){
+            intent = new Intent(VRTattoo.this, Options.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.about){
+            intent = new Intent(VRTattoo.this, About.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.logout){
+            intent = new Intent(VRTattoo.this, LoginScreen.class);
+            startActivity(intent);
+        }else if(item.getItemId() == R.id.sketch) {
+            intent = new Intent(VRTattoo.this, Sketch.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
     public void onItemSelected(AdapterView<?> parent, View view,
                               int pos, long id) {
