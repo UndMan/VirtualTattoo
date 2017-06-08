@@ -23,39 +23,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Trending Artists"
-        app:layout_constraintTop_toBottomOf="@id/toolbar2"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="10dp"
         />
 
-    <SearchView
-        android:id="@+id/searchBar"
-        android:layout_width="500dp"
-        android:layout_height="50dp"
-
+    <EditText
+        android:id="@+id/searchText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView5"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintRight_toLeftOf="@+id/filterButton"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="8dp"
+        />
 
-        <EditText
-            android:id="@+id/searchText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textPersonName"
-            />
-
-    </SearchView>
+    
     <ImageButton
         android:id="@+id/filterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView5"
-
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintLeft_toRightOf="@id/searchText"
         app:srcCompat="@drawable/ic_action_filter"
-        />
+        android:baselineAlignBottom="true"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -81,7 +78,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
 
-        android:layout_marginBottom="0dp"
         android:columnCount="3"
         android:isScrollContainer="true"
         android:orientation="horizontal"
@@ -92,24 +88,27 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchBar"
+        app:layout_constraintTop_toBottomOf="@+id/searchText"
         app:layout_constraintVertical_bias="0.0">
-        <LinearLayout
-            android:orientation="vertical">
-        <ImageView
-            android:id="@+id/owl1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="5dp"
-            app:srcCompat="@drawable/owl" />
 
-        <TextView android:text="Description"
-            android:textAlignment="center"
-            android:layout_height="fill_parent"
-            android:layout_width="fill_parent"/>
+        <LinearLayout android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/owl1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/owl" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="Description"
+                android:textAlignment="center" />
         </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical">
+
+        <LinearLayout android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/owl2"
                 android:layout_width="100dp"
@@ -117,14 +116,15 @@
                 android:layout_margin="5dp"
                 app:srcCompat="@drawable/owl" />
 
-            <TextView android:text="Description"
-                android:textAlignment="center"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_width="fill_parent"/>
+                android:text="Description"
+                android:textAlignment="center" />
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="vertical">
+        <LinearLayout android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/owl3"
                 android:layout_width="100dp"
@@ -132,14 +132,15 @@
                 android:layout_margin="5dp"
                 app:srcCompat="@drawable/owl" />
 
-            <TextView android:text="Description"
-                android:textAlignment="center"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_width="fill_parent"/>
+                android:text="Description"
+                android:textAlignment="center" />
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="vertical">
+        <LinearLayout android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/owl4"
                 android:layout_width="100dp"
@@ -147,13 +148,15 @@
                 android:layout_margin="5dp"
                 app:srcCompat="@drawable/owl" />
 
-            <TextView android:text="Description"
-                android:textAlignment="center"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_width="fill_parent"/>
+                android:text="Description"
+                android:textAlignment="center" />
         </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical">
+
+        <LinearLayout android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/owl5"
                 android:layout_width="100dp"
@@ -161,13 +164,15 @@
                 android:layout_margin="5dp"
                 app:srcCompat="@drawable/owl" />
 
-            <TextView android:text="Description"
-                android:textAlignment="center"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_width="fill_parent"/>
+                android:text="Description"
+                android:textAlignment="center" />
         </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical">
+
+        <LinearLayout android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/owl6"
                 android:layout_width="100dp"
@@ -175,13 +180,15 @@
                 android:layout_margin="5dp"
                 app:srcCompat="@drawable/owl" />
 
-            <TextView android:text="Description"
-                android:textAlignment="center"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_width="fill_parent"/>
+                android:text="Description"
+                android:textAlignment="center" />
         </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical">
+
+        <LinearLayout android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/owl7"
                 android:layout_width="100dp"
@@ -189,13 +196,15 @@
                 android:layout_margin="5dp"
                 app:srcCompat="@drawable/owl" />
 
-            <TextView android:text="Description"
-                android:textAlignment="center"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_width="fill_parent"/>
+                android:text="Description"
+                android:textAlignment="center" />
         </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical">
+
+        <LinearLayout android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/owl8"
                 android:layout_width="100dp"
@@ -203,13 +212,15 @@
                 android:layout_margin="5dp"
                 app:srcCompat="@drawable/owl" />
 
-            <TextView android:text="Description"
-                android:textAlignment="center"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_width="fill_parent"/>
+                android:text="Description"
+                android:textAlignment="center" />
         </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical">
+
+        <LinearLayout android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/owl9"
                 android:layout_width="100dp"
@@ -217,10 +228,11 @@
                 android:layout_margin="5dp"
                 app:srcCompat="@drawable/owl" />
 
-            <TextView android:text="Description"
-                android:textAlignment="center"
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_width="fill_parent"/>
+                android:text="Description"
+                android:textAlignment="center" />
         </LinearLayout>
 
     </GridLayout>
