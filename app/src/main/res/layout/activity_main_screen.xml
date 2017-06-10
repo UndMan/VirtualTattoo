@@ -101,6 +101,7 @@
                 app:srcCompat="@drawable/owl" />
 
             <TextView
+                android:id="@+id/desc1"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="Description"
@@ -117,6 +118,7 @@
                 app:srcCompat="@drawable/owl" />
 
             <TextView
+                android:id="@+id/desc2"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="Description"
@@ -133,6 +135,7 @@
                 app:srcCompat="@drawable/owl" />
 
             <TextView
+                android:id="@+id/desc3"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="Description"
@@ -149,6 +152,7 @@
                 app:srcCompat="@drawable/owl" />
 
             <TextView
+                android:id="@+id/desc4"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="Description"
@@ -158,6 +162,7 @@
         <LinearLayout android:orientation="vertical">
 
             <ImageView
+
                 android:id="@+id/owl5"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -165,6 +170,7 @@
                 app:srcCompat="@drawable/owl" />
 
             <TextView
+                android:id="@+id/desc5"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="Description"
@@ -181,6 +187,7 @@
                 app:srcCompat="@drawable/owl" />
 
             <TextView
+                android:id="@+id/desc6"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="Description"
@@ -197,6 +204,7 @@
                 app:srcCompat="@drawable/owl" />
 
             <TextView
+                android:id="@+id/desc7"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="Description"
@@ -213,6 +221,7 @@
                 app:srcCompat="@drawable/owl" />
 
             <TextView
+                android:id="@+id/desc8"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="Description"
@@ -229,6 +238,7 @@
                 app:srcCompat="@drawable/owl" />
 
             <TextView
+                android:id="@+id/desc9"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="Description"

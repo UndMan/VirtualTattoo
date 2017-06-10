@@ -2,6 +2,7 @@ package com.example.manuel.virtualtattoo;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -33,6 +34,8 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.Format;
 
 public class MainScreen extends AppCompatActivity {
@@ -41,7 +44,7 @@ public class MainScreen extends AppCompatActivity {
     private ImageButton searchButton;
     private EditText searchText;
     private RequestQueue queue;
-
+    private TextView description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,10 +89,12 @@ public class MainScreen extends AppCompatActivity {
 
                             @Override
                             public void onResponse(String response) {
-                                Log.i("TEST",response);
+                                Log.i("TEST", response);
                                 Gson gson = new Gson();
                                 FlickrData data = gson.fromJson(response, FlickrData.class);
                                 int i = 1;
+
+
                                 for(Photo p : data.getPhotos().getPhoto()){
                                     //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{o-secret}_o.(jpg|gif|png)
                                     String photoURL = "https://farm"+p.getFarm()+".staticflickr.com/"+p.getServer()+"/"+p.getId()+"_"+p.getSecret()+".jpg";
@@ -99,7 +104,14 @@ public class MainScreen extends AppCompatActivity {
                                     Log.i("TEST", photoURL);
 
                                     int id = getResources().getIdentifier("owl"+(i), "id", "com.example.manuel.virtualtattoo");
+                                    int iddesc = getResources().getIdentifier("desc"+(i), "id","com.exampe.manue.virtualtattoo");
+
                                     ImageView display = (ImageView) findViewById(id);
+                                    TextView description = (TextView) findViewById(R.id.desc1);
+                                    //   description.setText("Test");
+                                    // funktioniert nicht obwohl alles String und beim Debuggen Title vorhanden
+                                    // description.setText(p.getTitle());
+
                                     display.setImageURI(uri);
 
 
