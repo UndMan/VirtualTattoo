@@ -104,13 +104,12 @@ public class MainScreen extends AppCompatActivity {
                                     Log.i("TEST", photoURL);
 
                                     int id = getResources().getIdentifier("owl"+(i), "id", "com.example.manuel.virtualtattoo");
-                                    int iddesc = getResources().getIdentifier("desc"+(i), "id","com.exampe.manue.virtualtattoo");
+                                    int iddesc = getResources().getIdentifier("desc"+(i), "id","com.example.manuel.virtualtattoo");
 
                                     ImageView display = (ImageView) findViewById(id);
-                                    TextView description = (TextView) findViewById(R.id.desc1);
-                                    //   description.setText("Test");
+                                    TextView description = (TextView) findViewById(iddesc);
                                     // funktioniert nicht obwohl alles String und beim Debuggen Title vorhanden
-                                    // description.setText(p.getTitle());
+                                    description.setText(p.getTitle());
 
                                     display.setImageURI(uri);
 
