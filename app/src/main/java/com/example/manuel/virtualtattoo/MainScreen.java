@@ -108,23 +108,11 @@ public class MainScreen extends AppCompatActivity {
 
                                     ImageView display = (ImageView) findViewById(id);
                                     TextView description = (TextView) findViewById(iddesc);
-                                    // funktioniert nicht obwohl alles String und beim Debuggen Title vorhanden
+
                                     description.setText(p.getTitle());
 
                                     display.setImageURI(uri);
 
-
-                                    /****************************
-                                     * Lisa es funktioniert soweit, nur die Bilder werden im ImageView nicht dargestellt.
-                                     * Das liegt irgendwie an der Größe der Bilder und das setImageURI(uri) funktioniert nicht.
-                                     * Da braucht man eine Bitmap und muss die Größe anpassen, da ImageView keine großen Bilder darstellen kann.
-                                     * Bitte sieh dir das noch an.
-                                     * Im Android Monitor gibt er die Links zu den Bilder aus. Es funktioniert also die API nur nicht das darstellen in der App.
-                                     * lg
-                                     *
-                                     * PS: Du kannst noch machen dass, wenn man was in das EditText eingibt und den Suchbutton klickt das die gewünschten Bilder kommen.
-                                     * Zurzeit wir auch erst die Bilder geladen, wenn man auf den ImageButton klickt
-                                     ***************************/
 
                                     i++;
                                 }
