@@ -116,6 +116,7 @@ public class MainScreen extends AppCompatActivity {
 
                                     final ImageView display = (ImageView) findViewById(id);
                                     TextView description = (TextView) findViewById(iddesc);
+
                                     description.setText(p.getTitle());
 
                                     Picasso.with(MainScreen.this)
