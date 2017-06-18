@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content" >
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar2"
@@ -73,8 +76,8 @@
 
         <GridLayout
             android:id="@+id/searchImage"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:columnCount="3"
             android:isScrollContainer="true"
             android:orientation="horizontal"
@@ -95,6 +98,7 @@
                     android:id="@+id/owl1"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_margin="5dp"
                     app:srcCompat="@drawable/owl" />
 
                 <TextView
@@ -246,3 +250,4 @@
 
     </android.support.constraint.ConstraintLayout>
 
+</ScrollView>
