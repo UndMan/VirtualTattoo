@@ -1,10 +1,14 @@
 package com.example.manuel.virtualtattoo;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -14,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -33,14 +38,21 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.Format;
+
+import static com.example.manuel.virtualtattoo.R.id.imageView;
 
 public class MainScreen extends AppCompatActivity {
     private AdView mAdView;
-    private ImageView owl1;
     private ImageButton searchButton;
     private EditText searchText;
     private RequestQueue queue;
@@ -60,27 +72,27 @@ public class MainScreen extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        owl1 = (ImageView) findViewById(R.id.owl1);
         searchButton = (ImageButton) findViewById(R.id.filterButton);
         searchText = (EditText) findViewById(R.id.searchText);
 
         queue = Volley.newRequestQueue(this);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String url = Uri.parse("https://api.flickr.com/services/rest/")
                         .buildUpon()
-                        .appendQueryParameter("method","flickr.photos.search")
+                        .appendQueryParameter("method", "flickr.photos.search")
                         .appendQueryParameter("api_key", "5bcfbcf3ea86ca9a1d0e2607bb066478")
-                        .appendQueryParameter("text", "tattoo")
+                        .appendQueryParameter("text", "tattoo " + searchText.getText())
                         .appendQueryParameter("per_page", "9")
                         .appendQueryParameter("page", "1")
                         .appendQueryParameter("format", "json")
                         .appendQueryParameter("nojsoncallback", "1")
                         .build()
                         .toString();
-                Log.i("TEST", url);
 
                 StringRequest request = new StringRequest(
                         Request.Method.GET,
@@ -89,31 +101,27 @@ public class MainScreen extends AppCompatActivity {
 
                             @Override
                             public void onResponse(String response) {
-                                Log.i("TEST", response);
                                 Gson gson = new Gson();
                                 FlickrData data = gson.fromJson(response, FlickrData.class);
                                 int i = 1;
 
-
-                                for(Photo p : data.getPhotos().getPhoto()){
+                                for (Photo p : data.getPhotos().getPhoto()) {
                                     //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{o-secret}_o.(jpg|gif|png)
-                                    String photoURL = "https://farm"+p.getFarm()+".staticflickr.com/"+p.getServer()+"/"+p.getId()+"_"+p.getSecret()+".jpg";
-
-
+                                    String photoURL = "https://farm" + p.getFarm() + ".staticflickr.com/" + p.getServer() + "/" + p.getId() + "_" + p.getSecret() + ".jpg";
                                     Uri uri = Uri.parse(photoURL);
-                                    Log.i("TEST", photoURL);
 
-                                    int id = getResources().getIdentifier("owl"+(i), "id", "com.example.manuel.virtualtattoo");
-                                    int iddesc = getResources().getIdentifier("desc"+(i), "id","com.example.manuel.virtualtattoo");
+                                    int id = getResources().getIdentifier("owl" + (i), "id", "com.example.manuel.virtualtattoo");
 
-                                    ImageView display = (ImageView) findViewById(id);
+                                    int iddesc = getResources().getIdentifier("desc" + (i), "id", "com.example.manuel.virtualtattoo");
+
+                                    final ImageView display = (ImageView) findViewById(id);
                                     TextView description = (TextView) findViewById(iddesc);
 
                                     description.setText(p.getTitle());
 
-                                    display.setImageURI(uri);
-
-
+                                    Picasso.with(MainScreen.this)
+                                            .load(uri)
+                                            .into(display);
                                     i++;
                                 }
                             }
@@ -121,13 +129,16 @@ public class MainScreen extends AppCompatActivity {
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Log.i("TEST","ERROR");
+                                Log.i("TEST", "ERROR");
                             }
                         }
                 );
                 queue.add(request);
             }
         });
+
+        searchButton.callOnClick();
+
 
 
     }
@@ -138,7 +149,6 @@ public class MainScreen extends AppCompatActivity {
         mMenuInflater.inflate(R.menu.menu, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
