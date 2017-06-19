@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/VirtualTat.iml" filepath="$PROJECT_DIR$/VirtualTat.iml" />
       <module fileurl="file://$PROJECT_DIR$/VirtualTattoo.iml" filepath="$PROJECT_DIR$/VirtualTattoo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

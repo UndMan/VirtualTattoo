@@ -57,6 +57,7 @@ public class MainScreen extends AppCompatActivity {
     private EditText searchText;
     private RequestQueue queue;
     private TextView description;
+    public static final String SEARCHTEXT = "searchText";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +79,9 @@ public class MainScreen extends AppCompatActivity {
         queue = Volley.newRequestQueue(this);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
+        SharedPreferences settings = getSharedPreferences(SEARCHTEXT, 0);
+        String prefSearchText = settings.getString("searchText", "");
+        searchText.setText(prefSearchText);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +97,7 @@ public class MainScreen extends AppCompatActivity {
                         .appendQueryParameter("nojsoncallback", "1")
                         .build()
                         .toString();
-
+                Log.i("MUn", "Text="+searchText.getText().toString());
                 StringRequest request = new StringRequest(
                         Request.Method.GET,
                         url,
@@ -137,10 +141,46 @@ public class MainScreen extends AppCompatActivity {
             }
         });
 
+        Log.i("MUn", "onCreate");
+
+    }
+
+    @Override
+    protected void onStart() {
         searchButton.callOnClick();
+        Log.i("MUn", "onStart");
+        super.onStart();
+    }
 
+    @Override
+    protected void onStop() {
+        Log.i("MUn", "onStop");
+        super.onStop();
 
+        SharedPreferences settings = getSharedPreferences(SEARCHTEXT, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("searchText", searchText.getText().toString());
 
+        // Commit the edits!
+        editor.commit();
+    }
+
+    @Override
+    protected void onRestart() {
+        Log.i("MUn", "onRestart");
+        super.onRestart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.i("MUn", "onDestroy");
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        Log.i("MUn", "onPause");
+        super.onPause();
     }
 
     @Override
