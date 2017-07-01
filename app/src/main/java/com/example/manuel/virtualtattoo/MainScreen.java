@@ -25,6 +25,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import android.content.*;
+import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -50,6 +52,7 @@ import java.net.URL;
 import java.text.Format;
 
 import static com.example.manuel.virtualtattoo.R.id.imageView;
+import static com.example.manuel.virtualtattoo.R.id.text_sketch;
 
 public class MainScreen extends AppCompatActivity {
     private AdView mAdView;
@@ -86,7 +89,19 @@ public class MainScreen extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = Uri.parse("https://api.flickr.com/services/rest/")
+
+                String textsearch = searchText.getText().toString().trim();
+
+
+               if(!textsearch.isEmpty()) {
+                   Intent intent = new Intent(MainScreen.this, ResultsActivity.class);
+                   intent.putExtra(ResultsActivity.SEARCHTEXT, textsearch);
+                   startActivity(intent);
+               }
+               else
+                   Toast.makeText(getBaseContext(), "Search text to short", Toast.LENGTH_LONG).show();
+
+                /*String url = Uri.parse("https://api.flickr.com/services/rest/")
                         .buildUpon()
                         .appendQueryParameter("method", "flickr.photos.search")
                         .appendQueryParameter("api_key", "5bcfbcf3ea86ca9a1d0e2607bb066478")
@@ -137,7 +152,7 @@ public class MainScreen extends AppCompatActivity {
                             }
                         }
                 );
-                queue.add(request);
+                queue.add(request);*/
             }
         });
 
