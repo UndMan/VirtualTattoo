@@ -58,8 +58,8 @@ public class MainScreen extends AppCompatActivity {
     private AdView mAdView;
     private ImageButton searchButton;
     private EditText searchText;
-    private RequestQueue queue;
-    private TextView description;
+    //private RequestQueue queue;
+  //  private TextView description;
     public static final String SEARCHTEXT = "searchText";
 
     @Override
@@ -162,7 +162,7 @@ public class MainScreen extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        searchButton.callOnClick();
+      //  searchButton.callOnClick();
         Log.i("MUn", "onStart");
         super.onStart();
     }
