@@ -79,7 +79,7 @@ public class MainScreen extends AppCompatActivity {
         searchButton = (ImageButton) findViewById(R.id.filterButton);
         searchText = (EditText) findViewById(R.id.searchText);
 
-        queue = Volley.newRequestQueue(this);
+      //  queue = Volley.newRequestQueue(this);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         SharedPreferences settings = getSharedPreferences(SEARCHTEXT, 0);

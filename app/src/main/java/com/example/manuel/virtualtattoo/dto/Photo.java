@@ -11,6 +11,11 @@ public class Photo {
     private String server;
     private String secret;
 
+    public Photo(String title)
+    {
+        this.title=title;
+    }
+
     public String getTitle() {
         return title;
     }

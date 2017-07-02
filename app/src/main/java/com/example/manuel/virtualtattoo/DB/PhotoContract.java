@@ -13,5 +13,6 @@ public class PhotoContract {
         public static final String COLUMN_NAME = "title";
 
 
+
     }
 }

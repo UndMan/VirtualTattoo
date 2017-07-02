@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.manuel.virtualtattoo.dto.Photo;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -53,4 +55,21 @@ public class DBRepository {
     private static final String GET_OLD_DATA_SQL = "SELECT * FROM " + PhotoContract.PhotoEntry.TABLE_NAME +
           " WHERE " + PhotoContract.PhotoEntry.COLUMN_NAME + "=?";
 
+
+    public List<Photo> getOldData(String title) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        List<Photo> data = null;
+        // Get data from the Database
+        Cursor c = db.rawQuery(GET_OLD_DATA_SQL, new String[] { title});
+        if (c.moveToFirst()) {
+            data = new ArrayList<>();
+
+            do {
+                data.add((new Photo(c.getString(c.getColumnIndex(PhotoContract.PhotoEntry.COLUMN_NAME)))));
+            }while (c.moveToNext());
+        }
+        c.close();
+        return data;
+    }
 }
